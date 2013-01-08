@@ -1,0 +1,31 @@
+<html>
+
+  <head>
+    <script src="js/jquery-1.4.2.js"></script>
+    <script src="http://localhost:8081/socket.io/socket.io.js"></script>
+
+    <script>
+      $(document).ready(function() {
+				alert("hello");
+				socket = io.connect('http://localhost:8081'),
+		    socket.on('twitter', function(data) {
+          console.log(data);
+          var div = $("<div></div>");
+          div.text(data);
+
+          $("#messages").prepend(div);
+
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+
+
+    <h1>Messages</h1>
+
+    <div id="messages"></div>
+  </body>
+
+</html>
